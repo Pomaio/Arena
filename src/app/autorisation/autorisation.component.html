@@ -1,0 +1,64 @@
+<div class="col-md-6 card" (submit)="onSubmit()">
+    <form [formGroup]="form">
+        <div class="form-group">
+            <label for="emailInput">Адрес электронной почты</label>
+            <input type="email"
+                   id="emailInput"
+                   class="form-control"
+                   required
+                   maxlength="100"
+                   [class.is-invalid]="email.invalid
+                   && (email.touched || touchedButton)"
+                   pattern="\w+\@\w+\.\w+"
+                   formControlName='email'
+                   placeholder="Введите ваш email">
+            <div class="invalid-feedback">{{errorEmail}}</div>
+        </div>
+        <div class="form-group">
+            <label for="password1">Придумайте пароль</label>
+            <input type="password"
+                   formControlName="password"
+                   [class.is-invalid]="password.invalid
+                   && (password.touched || touchedButton)"
+                   required
+                   id="password1"
+                   class="form-control"
+                   placeholder="Пароль">
+            <div class="invalid-feedback">{{errorPassword}}</div>
+        </div>
+        <div class="form-group">
+            <label for="password2">Повторите пароль</label>
+            <input type="password"
+                   formControlName="passwordRepeat"
+                   id="password2"
+                   [class.is-invalid]="(password.invalid
+                   || password.value !== passwordRepeat.value)
+                   && (passwordRepeat.touched || touchedButton)"
+                   class="form-control"
+                   placeholder="Пароль">
+            <div class="invalid-feedback">Пароли не совпадают</div>
+        </div>
+        <fieldset class="form-group">
+            <legend></legend>
+            <div class="form-check">
+                <label class="form-check-label">
+                    <input type="checkbox" class="form-check-input"
+                           [class.is-invalid]="!checked.value
+                           && (checked.touched || touchedButton)"
+                           formControlName="checked">
+                    <div class="invalid-feedback">Принимай!!!</div>
+                    Согласен со всеми условиями
+                </label>
+            </div>
+        </fieldset>
+        <div class="form-group">
+            <button type="submit"
+                    class="btn btn-primary btn-block">
+                Готово
+            </button>
+        </div>
+    </form>
+    <div class="card-footer" *ngIf="resultShow">
+        {{Result | json}}
+    </div>
+</div>

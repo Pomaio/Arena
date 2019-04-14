@@ -1,0 +1,11 @@
+.col-md-6{
+    min-width: 300px;
+}
+.card{
+    display: block;
+    padding: 10px 20px;
+}
+:host{
+  display: flex;
+  justify-content: center;
+}

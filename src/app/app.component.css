@@ -1,0 +1,20 @@
+
+.layout {
+  display: flex;
+  height: 100vh;
+  min-height: 750px;
+
+}
+
+.layout__side {
+  flex: 0 0 200px;
+  width: 200px;
+  border-right: 2px solid rgba(161,190,191,0.22);
+}
+
+.layout__main {
+  flex: 1 1 auto;
+  overflow: auto;
+  padding: 20px 0;
+}
+
