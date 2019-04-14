@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {Itask} from '../../model/itask';
+import {TaskTableService} from './services/task-table.service';
 
 @Component({
   selector: 'app-task-table',
@@ -6,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./task-table.component.css']
 })
 export class TaskTableComponent implements OnInit {
-  constructor() { }
+
+  tasks: Itask[] = [];
+
+  constructor(private taskTableService: TaskTableService) { }
 
   ngOnInit() {
+        this.tasks=this.taskTableService.getData();
   }
 
 }

@@ -1,0 +1,13 @@
+.table{
+  margin: 0;
+}
+td{
+  cursor: pointer;
+  text-align: center;
+}
+th,td{
+  border: 1px solid grey;
+}
+td:hover{
+  background-color: gray;
+}
