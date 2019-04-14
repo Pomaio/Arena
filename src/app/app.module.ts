@@ -8,6 +8,7 @@ import {TaskListModule} from './task-list/task-list.module';
 import {AutorisationComponent} from './autorisation/autorisation.component';
 import {ReactiveFormsModule} from '@angular/forms';
 import { RegistrationComponent } from './registration/registration.component';
+import {appRoutes} from './routing/app.routing';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { RegistrationComponent } from './registration/registration.component';
     RouterModule,
     TaskListModule,
     ReactiveFormsModule,
+    RouterModule.forRoot(appRoutes),
   ],
   providers: [
     {
