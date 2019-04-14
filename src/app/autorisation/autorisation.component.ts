@@ -17,7 +17,7 @@ export class AutorisationComponent implements OnInit {
   errorPassword = 'Поле обязательно для заполнения';
   errorPasswordType: object = {
     required: 'Поле обязательно для заполнения',
-    pattern: 'Необходимо: прописная и заглавная латинские буквы + цифра + спецсимвол(_!#+-$)',
+    pattern: 'Недействительный пароль',
     minlength: 'Минимальная длина — 5'
 
   };
@@ -35,9 +35,7 @@ export class AutorisationComponent implements OnInit {
       email: [''],
       password: ['', Validators.compose([Validators.minLength(5),
         Validators.pattern(this.passwordRegex)
-      ])],
-      passwordRepeat: [''],
-      checked: false
+      ])]
     });
     this.form.valueChanges.subscribe(() => {
       for (const key in this.email.errors) {
@@ -57,16 +55,7 @@ export class AutorisationComponent implements OnInit {
     return this.form.get('password');
   }
 
-  get passwordRepeat() {
-    return this.form.get('passwordRepeat');
-  }
-
-  get checked() {
-    return this.form.get('checked');
-  }
-
   onSubmit() {
-    if (this.checked.value) {
       this.touchedButton = true;
       if (this.form.invalid) {
         return;
@@ -75,10 +64,8 @@ export class AutorisationComponent implements OnInit {
         this.resultShow = true;
         this.Result = this.form.value;
         this.touchedButton = false;
-        console.log(this.Result);
         this.form.reset();
       }
-    } else { return; }
   }
 }
 
