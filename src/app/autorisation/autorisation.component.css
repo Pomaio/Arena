@@ -23,7 +23,7 @@ form{
 .footer{
   display: flex;
   justify-content: space-between;
-  padding-bottom: 5px;
+  padding: 10px 0;
 }
 button{
   width: 110px;

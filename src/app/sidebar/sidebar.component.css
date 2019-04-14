@@ -29,8 +29,14 @@
 
 }
 .footer{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
   margin: 0;
-
   border-radius: 0;
+  background: #f0f0f0;
 }
 
+.footer-text{
+  text-align: center;
+}
