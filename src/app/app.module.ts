@@ -7,12 +7,14 @@ import {RouterModule} from '@angular/router';
 import {TaskListModule} from './task-list/task-list.module';
 import {AutorisationComponent} from './autorisation/autorisation.component';
 import {ReactiveFormsModule} from '@angular/forms';
+import { RegistrationComponent } from './registration/registration.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SidebarComponent,
-    AutorisationComponent
+    AutorisationComponent,
+    RegistrationComponent
   ],
   imports: [
     BrowserModule,
