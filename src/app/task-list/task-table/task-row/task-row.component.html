@@ -1,6 +1,6 @@
 
-<td>{{topic.name}}</td>
-<td *ngFor="let one of topic.tasks"
+<th>{{topic.name}}</th>
+<td class="task" *ngFor="let one of topic.tasks"
     [id]="one.name"
     (dblclick)="onClick(one)">
   {{one.price}}

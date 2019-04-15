@@ -9,15 +9,16 @@ import {AutorisationComponent} from './autorisation/autorisation.component';
 import {ReactiveFormsModule} from '@angular/forms';
 import { RegistrationComponent } from './registration/registration.component';
 import {appRoutes} from './routing/app.routing';
+import {AutorisationModule} from './autorisation/autorisation.module';
 
 @NgModule({
   declarations: [
     AppComponent,
     SidebarComponent,
-    AutorisationComponent,
     RegistrationComponent
   ],
   imports: [
+    AutorisationModule,
     BrowserModule,
     RouterModule,
     TaskListModule,

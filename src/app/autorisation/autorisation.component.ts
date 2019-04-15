@@ -1,5 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {AutorisationHttpService} from './services/autorisation-http.service';
+import {Iuser} from '../model/iuser';
 
 @Component({
   selector: 'app-autorisation',
@@ -27,7 +29,7 @@ export class AutorisationComponent implements OnInit {
   resultShow: boolean = false;
 
 
-  constructor(private formBuilder: FormBuilder) {
+  constructor(private formBuilder: FormBuilder, private autorisationHttpService: AutorisationHttpService) {
   }
 
   ngOnInit() {
@@ -45,6 +47,7 @@ export class AutorisationComponent implements OnInit {
         this.errorPassword = this.errorPasswordType[key];
       }
     });
+    this.autorisationHttpService.getPurchases();
   }
 
   get email() {
@@ -65,7 +68,13 @@ export class AutorisationComponent implements OnInit {
         this.Result = this.form.value;
         this.touchedButton = false;
         this.form.reset();
+        this.addUser(this.Result)
       }
+  }
+  addUser(user: Iuser) {
+    this.autorisationHttpService.addUsers(user).subscribe(id => {
+      const newUser = {...user, id};
+    });
   }
 }
 

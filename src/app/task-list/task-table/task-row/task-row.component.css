@@ -2,14 +2,12 @@
   display: flex;
   width: 100%;
 }
-td{
+td,th{
   text-align: center;
   width: 100%;
-}
-td{
   border: 1px solid grey;
 }
-td:hover{
+td:hover {
   background-color: gray;
   cursor: pointer;
 }
