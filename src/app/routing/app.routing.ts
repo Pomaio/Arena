@@ -10,7 +10,7 @@ export const appRoutes: Routes = [
     component: TaskListComponent,
   },
   {
-    path: 'reg',
+    path: 'aut/reg',
     component: RegistrationComponent,
   },
   {

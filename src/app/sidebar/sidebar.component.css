@@ -15,7 +15,7 @@
   height: 100%;
 }
 .header{
-  height: 196px;
+  height: 170px;
   margin-bottom: 20px;
 
   border-right: 2px solid rgba(161,190,191,0.22);
@@ -39,4 +39,11 @@
 
 .footer-text{
   text-align: center;
+}
+.footer-image{
+  margin: auto 2px;
+}
+.img-top{
+  display: block;
+ margin: 10px auto;
 }
