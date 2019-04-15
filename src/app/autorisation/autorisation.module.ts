@@ -4,6 +4,7 @@ import {AutorisationComponent} from './autorisation.component';
 import {AutorisationHttpService} from './services/autorisation-http.service';
 import {HttpClientModule} from '@angular/common/http';
 import {ReactiveFormsModule} from '@angular/forms';
+import {RouterModule} from '@angular/router';
 
 @NgModule({
   declarations: [AutorisationComponent],
@@ -13,7 +14,8 @@ import {ReactiveFormsModule} from '@angular/forms';
   imports: [
     CommonModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    RouterModule
   ],
   providers:[AutorisationHttpService]
 })
