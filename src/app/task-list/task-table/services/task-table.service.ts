@@ -43,7 +43,7 @@ export class TaskTableService {
       },]
       },
       {
-        name: "kek",
+        name: "kek1",
         tasks: [
           {
             name: 'Первая',
@@ -77,7 +77,7 @@ export class TaskTableService {
           },]
       },
       {
-        name: "kek",
+        name: "kek2",
         tasks: [
           {
             name: 'Первая',
@@ -111,7 +111,7 @@ export class TaskTableService {
           },]
       },
       {
-        name: "kek",
+        name: "kek3",
         tasks: [
           {
             name: 'Первая',
@@ -145,7 +145,7 @@ export class TaskTableService {
           },]
       },
       {
-        name: "kek",
+        name: "kek44242",
         tasks: [
           {
             name: 'Первая',

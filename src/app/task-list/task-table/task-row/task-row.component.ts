@@ -9,6 +9,7 @@ import {Itask} from '../../../model/itask';
 })
 export class TaskRowComponent implements OnInit {
   @Input() topic: Itopic;
+  activeElement: any;
 
   constructor() { }
 
@@ -16,5 +17,10 @@ export class TaskRowComponent implements OnInit {
   }
   onClick(element) {
     console.log(element);
+     this.activeElement = document.getElementById(element.name);
+     this.activeElement.className='active';
+    console.log(this.activeElement);
+
   }
+
 }

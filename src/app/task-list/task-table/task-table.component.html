@@ -1,4 +1,10 @@
-<div class="" *ngFor="let kek of tasks">
-  <app-task-row [topic]="kek"></app-task-row>
+<div class="" >
+  <table class="table table-hover">
+    <tbody >
+    <tr *ngFor="let kek of tasks">
+      <app-task-row [topic]="kek">
+      </app-task-row></tr>
+    </tbody>
+  </table>
 </div>
 
