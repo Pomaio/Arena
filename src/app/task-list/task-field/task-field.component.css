@@ -2,3 +2,6 @@
   display: block;
   padding-top: 50px;
 }
+.card-body{
+  padding-bottom: 0;
+}

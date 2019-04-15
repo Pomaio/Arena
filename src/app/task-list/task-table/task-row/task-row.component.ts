@@ -9,7 +9,6 @@ import {Itask} from '../../../model/itask';
 })
 export class TaskRowComponent implements OnInit {
   @Input() topic: Itopic;
-  @Output() task: Itask;
 
   constructor() { }
 
@@ -17,6 +16,5 @@ export class TaskRowComponent implements OnInit {
   }
   onClick(element) {
     console.log(element);
-    this.task = element;
   }
 }

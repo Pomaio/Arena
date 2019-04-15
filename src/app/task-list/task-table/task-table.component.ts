@@ -11,7 +11,6 @@ import {Itask} from '../../model/itask';
 export class TaskTableComponent implements OnInit {
 
   tasks: Itopic[]=[] ;
-  @Output() task: Itask;
 
 
   constructor(private taskTableService: TaskTableService) { }

@@ -7,7 +7,6 @@ import {Itask} from '../../model/itask';
   styleUrls: ['./task-field.component.css']
 })
 export class TaskFieldComponent implements OnInit {
-  @Input() task: Itask;
 
   constructor() { }
 

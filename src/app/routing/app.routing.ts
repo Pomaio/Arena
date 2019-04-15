@@ -14,7 +14,7 @@ export const appRoutes: Routes = [
     component: RegistrationComponent,
   },
   {
-    path: '',
+    path: 'aut',
     component: AutorisationComponent,
   }
 ];
