@@ -2,15 +2,10 @@
   <tbody>
     <tr>
       <th>{{topic.name}}</th>
-      <td class="" *ngFor="let one of topic.tasks">{{one.price}}</td>
+      <td class=""
+          *ngFor="let one of topic.tasks"
+      (dblclick)="onClick(one)" >{{one.price}}</td>
     </tr>
   </tbody>
 </table>
-<!--<div class="task">-->
-<!--    <span>Название 1</span>-->
-<!--    <button class="btn btn-secondary">100</button>-->
-<!--    <button class="btn btn-secondary">200</button>-->
-<!--    <button class="btn btn-secondary">300</button>-->
-<!--    <button class="btn btn-secondary">400</button>-->
-<!--    <button class="btn btn-secondary">500</button>-->
-<!--</div>-->
+

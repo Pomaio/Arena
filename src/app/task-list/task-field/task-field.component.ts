@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
+import {Itask} from '../../model/itask';
 
 @Component({
   selector: 'app-task-field',
@@ -6,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./task-field.component.css']
 })
 export class TaskFieldComponent implements OnInit {
+  @Input() task: Itask;
 
   constructor() { }
 

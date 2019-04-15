@@ -16,3 +16,18 @@
     </div>
   </div>
 </div>
+<div class="card border-primary mb-3" *ngIf="task">
+  <div class="card-header">{{task.name}}-{{task.price}}</div>
+  <div class="card-body">
+    <p class="card-text">
+      {{task.content}}
+    </p>
+    <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text">Ответ:</span>
+      </div>
+      <input type="text"
+             class="form-control">
+    </div>
+  </div>
+</div>
