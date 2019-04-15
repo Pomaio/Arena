@@ -1,43 +1,47 @@
 import { Injectable } from '@angular/core';
-import {Itask} from '../../../model/itask';
+import {Itopic} from '../../../model/itopic';
 
 @Injectable({
   providedIn: 'root'
 })
 export class TaskTableService {
 
-  getData(): Itask[] {
+  getData(): Itopic[] {
     return [
       {
-        title: 'Первая',
+      name: "kek",
+      tasks: [
+      {
+        name: 'Первая',
         price: 100,
         content: 'кккк',
         answer: ''
       },
       {
-        title: 'Вторая',
+        name: 'Вторая',
         price: 200,
         content: 'кккк',
         answer: ''
       },
       {
-        title: 'Третья',
+        name: 'Третья',
         price: 300,
         content: 'ккккк',
         answer: ''
       },
       {
-        title: 'Четвертая',
+        name: 'Четвертая',
         price: 400,
         content: 'кккк',
         answer: ''
       },
       {
-        title: 'Пятая',
+        name: 'Пятая',
         price: 500,
         content: 'кккк',
         answer: ''
-      },
-    ];
+      },]
+      }
+    ]
   }
 }

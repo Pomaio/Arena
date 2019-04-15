@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {Itask} from '../../../model/itask';
+import {Itopic} from '../../../model/itopic';
 
 @Component({
   selector: 'app-task-row',
@@ -7,7 +7,7 @@ import {Itask} from '../../../model/itask';
   styleUrls: ['./task-row.component.css']
 })
 export class TaskRowComponent implements OnInit {
-  @Input() task: Itask;
+  @Input() topic: Itopic;
 
   constructor() { }
 

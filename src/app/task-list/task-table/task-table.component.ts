@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {Itask} from '../../model/itask';
 import {TaskTableService} from './services/task-table.service';
+import {Itopic} from '../../model/itopic';
 
 @Component({
   selector: 'app-task-table',
@@ -9,7 +9,7 @@ import {TaskTableService} from './services/task-table.service';
 })
 export class TaskTableComponent implements OnInit {
 
-  tasks: Itask[] = [];
+  tasks: Itopic[]=[] ;
 
   constructor(private taskTableService: TaskTableService) { }
 
