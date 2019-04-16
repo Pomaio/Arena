@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import {Itopic} from '../../../model/itopic';
+import {tasks} from '../../../../../utils/tasks-db';
 
 @Injectable({
   providedIn: 'root'
@@ -9,68 +10,68 @@ export class TaskTableService {
   getData(): Itopic[] {
     return [
       {
-      name: "kek",
-      tasks: [
-      {
-        name: 'Первая',
-        price: 100,
-        content: 'кккк',
-        answer: ''
-      },
-      {
-        name: 'Вторая',
-        price: 200,
-        content: 'кккк',
-        answer: ''
-      },
-      {
-        name: 'Третья',
-        price: 300,
-        content: 'ккккк',
-        answer: ''
-      },
-      {
-        name: 'Четвертая',
-        price: 400,
-        content: 'кккк',
-        answer: ''
-      },
-      {
-        name: 'Пятая',
-        price: 500,
-        content: 'кккк',
-        answer: ''
-      },]
-      },
-      {
-        name: "kek1",
+        name: "kek",
         tasks: [
           {
-            name: 'Первая',
+            name: 'Первая1',
             price: 100,
             content: 'кккк',
             answer: ''
           },
           {
-            name: 'Вторая',
+            name: 'Вторая1',
             price: 200,
             content: 'кккк',
             answer: ''
           },
           {
-            name: 'Третья',
+            name: 'Третья1',
             price: 300,
             content: 'ккккк',
             answer: ''
           },
           {
-            name: 'Четвертая',
+            name: 'Четвертая1',
             price: 400,
             content: 'кккк',
             answer: ''
           },
           {
-            name: 'Пятая',
+            name: 'Пятая1',
+            price: 500,
+            content: 'кккк',
+            answer: ''
+          },]
+      },
+      {
+        name: "kek1",
+        tasks: [
+          {
+            name: 'Первая2',
+            price: 100,
+            content: 'кккк',
+            answer: ''
+          },
+          {
+            name: 'Вторая2',
+            price: 200,
+            content: 'кккк',
+            answer: ''
+          },
+          {
+            name: 'Третья2',
+            price: 300,
+            content: 'ккккк',
+            answer: ''
+          },
+          {
+            name: 'Четвертая2',
+            price: 400,
+            content: 'кккк',
+            answer: ''
+          },
+          {
+            name: 'Пятая2',
             price: 500,
             content: 'кккк',
             answer: ''
@@ -80,31 +81,31 @@ export class TaskTableService {
         name: "kek2",
         tasks: [
           {
-            name: 'Первая',
+            name: 'Первая3',
             price: 100,
             content: 'кккк',
             answer: ''
           },
           {
-            name: 'Вторая',
+            name: 'Вторая3',
             price: 200,
             content: 'кккк',
             answer: ''
           },
           {
-            name: 'Третья',
+            name: 'Третья3',
             price: 300,
             content: 'ккккк',
             answer: ''
           },
           {
-            name: 'Четвертая',
+            name: 'Четвертая3',
             price: 400,
             content: 'кккк',
             answer: ''
           },
           {
-            name: 'Пятая',
+            name: 'Пятая3',
             price: 500,
             content: 'кккк',
             answer: ''
@@ -114,31 +115,31 @@ export class TaskTableService {
         name: "kek3",
         tasks: [
           {
-            name: 'Первая',
+            name: 'Первая4',
             price: 100,
             content: 'кккк',
             answer: ''
           },
           {
-            name: 'Вторая',
+            name: 'Вторая4',
             price: 200,
             content: 'кккк',
             answer: ''
           },
           {
-            name: 'Третья',
+            name: 'Третья4',
             price: 300,
             content: 'ккккк',
             answer: ''
           },
           {
-            name: 'Четвертая',
+            name: 'Четвертая4',
             price: 400,
             content: 'кккк',
             answer: ''
           },
           {
-            name: 'Пятая',
+            name: 'Пятая4',
             price: 500,
             content: 'кккк',
             answer: ''
@@ -148,36 +149,36 @@ export class TaskTableService {
         name: "kek44242",
         tasks: [
           {
-            name: 'Первая',
+            name: 'Первая5',
             price: 100,
             content: 'кккк',
             answer: ''
           },
           {
-            name: 'Вторая',
+            name: 'Вторая5',
             price: 200,
             content: 'кккк',
             answer: ''
           },
           {
-            name: 'Третья',
+            name: 'Третья5',
             price: 300,
             content: 'ккккк',
             answer: ''
           },
           {
-            name: 'Четвертая',
+            name: 'Четвертая5',
             price: 400,
             content: 'кккк',
             answer: ''
           },
           {
-            name: 'Пятая',
+            name: 'Пятая5',
             price: 500,
             content: 'кккк',
             answer: ''
           },]
       }
-    ]
+    ];
   }
 }

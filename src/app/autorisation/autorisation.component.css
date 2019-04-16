@@ -28,4 +28,8 @@ form{
 button{
   width: 110px;
 }
-
+.card-footer{
+  color: red;
+  border: 1px solid black;
+  border-radius: 5px;
+}

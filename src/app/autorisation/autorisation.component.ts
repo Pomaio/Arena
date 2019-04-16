@@ -1,6 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {AutorisationHttpService} from './services/autorisation-http.service';
+import {Iuser} from '../model/iuser';
+import {AutorisationService} from './services/autorisation.service';
 
 @Component({
   selector: 'app-autorisation',
@@ -22,16 +24,22 @@ export class AutorisationComponent implements OnInit {
     minlength: 'Минимальная длина — 5'
 
   };
+  errorAutorisation="Пользователь не найден";
+  errorAutorisationStatus=false;
   touchedButton = false;
   passwordRegex = /(?=.*[0-9])(?=.*[!?.,_+\-*/=])(?=.*[a-z])(?=.*[A-Z])/g;
   Result: any;
   resultShow: boolean = false;
+  user: Iuser ;
 
 
-  constructor(private formBuilder: FormBuilder, private autorisationHttpService: AutorisationHttpService) {
+  constructor(private formBuilder: FormBuilder,
+              private autorisationHttpService: AutorisationHttpService,
+              private _service: AutorisationService) {
   }
 
   ngOnInit() {
+
     this.form = this.formBuilder.group({
       email: [''],
       password: ['', Validators.compose([Validators.minLength(5),
@@ -66,7 +74,22 @@ export class AutorisationComponent implements OnInit {
         this.Result = this.form.value;
         this.touchedButton = false;
         this.form.reset();
+        this.findUser(this.Result);
+
       }
+  }
+  findUser(User: Iuser) {
+    this.autorisationHttpService.getUser().subscribe(user => {
+      user = user.filter(function(element) {
+        return ((User.email == element.email)&&(User.password == element.password));
+      });
+      if(user.length ===0){
+        this.errorAutorisationStatus=true;
+      }else{
+        this._service.callToAuth(user[0]);
+        this.errorAutorisationStatus=false;
+      }
+    });
   }
 }
 

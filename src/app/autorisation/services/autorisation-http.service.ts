@@ -5,18 +5,28 @@ import {Iuser} from '../../model/iuser';
 import {map} from 'rxjs/operators';
 
 const BASE_URL = 'https://aren-f.firebaseio.com';
+interface IuserDto {
+  [id: string]: Iuser;
+}
 
 @Injectable()
 export class AutorisationHttpService {
 
   constructor(private http: HttpClient) { }
 
-  getPurchases() {
-    this.http.get(`${BASE_URL}/purchases.json`).subscribe(() => {});
-  }
-  addUsers(newUser: Iuser): Observable<string> {
+  getUser(): Observable<Iuser[]> {
     return this.http
-      .post<{name: string}>(`${BASE_URL}/users.json`, newUser)
+      .get<IuserDto>(`${BASE_URL}/user.json`)
+      .pipe(
+        map(data =>
+          Object.entries(data).map(([id, user]) => ({id, ...user})),
+          ),
+      );
+  }
+
+  addUser(newUser: Iuser): Observable<string> {
+    return this.http
+      .post<{name: string}>(`${BASE_URL}/user.json`, newUser)
       .pipe(
         map(({name}) => name)
       );

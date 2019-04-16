@@ -80,17 +80,23 @@ export class RegistrationComponent implements OnInit {
       if (this.form.valid) {
         this.resultShow = true;
         this.Result = this.form.value;
+
         this.touchedButton = false;
         this.form.reset();
 
-
+        this.Result = RegistrationComponent.confProp(this.Result);
         this.addUser(this.Result);
       }
     } else { return; }
   }
+  static confProp(form: any) {
+    delete form.checked;
+    delete form.passwordRepeat;
+    form.points = initialPoints;
+    return form;
+  }
   addUser(user: Iuser) {
-    user.points = initialPoints;
-    this.registrationHttpService.addUsers(user).subscribe(id => {
+    this.registrationHttpService.addUser(user).subscribe(id => {
       const newUser = {...user, id};
     });
      this._service.callToAuth(user);

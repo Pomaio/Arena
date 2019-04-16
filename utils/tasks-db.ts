@@ -6,31 +6,31 @@ export const tasks: Itopic[] = [
       name: "kek",
       tasks: [
         {
-          name: 'Первая',
+          name: 'Первая1',
           price: 100,
           content: 'кккк',
           answer: ''
         },
         {
-          name: 'Вторая',
+          name: 'Вторая1',
           price: 200,
           content: 'кккк',
           answer: ''
         },
         {
-          name: 'Третья',
+          name: 'Третья1',
           price: 300,
           content: 'ккккк',
           answer: ''
         },
         {
-          name: 'Четвертая',
+          name: 'Четвертая1',
           price: 400,
           content: 'кккк',
           answer: ''
         },
         {
-          name: 'Пятая',
+          name: 'Пятая1',
           price: 500,
           content: 'кккк',
           answer: ''
@@ -40,31 +40,31 @@ export const tasks: Itopic[] = [
       name: "kek1",
       tasks: [
         {
-          name: 'Первая',
+          name: 'Первая2',
           price: 100,
           content: 'кккк',
           answer: ''
         },
         {
-          name: 'Вторая',
+          name: 'Вторая2',
           price: 200,
           content: 'кккк',
           answer: ''
         },
         {
-          name: 'Третья',
+          name: 'Третья2',
           price: 300,
           content: 'ккккк',
           answer: ''
         },
         {
-          name: 'Четвертая',
+          name: 'Четвертая2',
           price: 400,
           content: 'кккк',
           answer: ''
         },
         {
-          name: 'Пятая',
+          name: 'Пятая2',
           price: 500,
           content: 'кккк',
           answer: ''
@@ -74,31 +74,31 @@ export const tasks: Itopic[] = [
       name: "kek2",
       tasks: [
         {
-          name: 'Первая',
+          name: 'Первая3',
           price: 100,
           content: 'кккк',
           answer: ''
         },
         {
-          name: 'Вторая',
+          name: 'Вторая3',
           price: 200,
           content: 'кккк',
           answer: ''
         },
         {
-          name: 'Третья',
+          name: 'Третья3',
           price: 300,
           content: 'ккккк',
           answer: ''
         },
         {
-          name: 'Четвертая',
+          name: 'Четвертая3',
           price: 400,
           content: 'кккк',
           answer: ''
         },
         {
-          name: 'Пятая',
+          name: 'Пятая3',
           price: 500,
           content: 'кккк',
           answer: ''
@@ -108,31 +108,31 @@ export const tasks: Itopic[] = [
       name: "kek3",
       tasks: [
         {
-          name: 'Первая',
+          name: 'Первая4',
           price: 100,
           content: 'кккк',
           answer: ''
         },
         {
-          name: 'Вторая',
+          name: 'Вторая4',
           price: 200,
           content: 'кккк',
           answer: ''
         },
         {
-          name: 'Третья',
+          name: 'Третья4',
           price: 300,
           content: 'ккккк',
           answer: ''
         },
         {
-          name: 'Четвертая',
+          name: 'Четвертая4',
           price: 400,
           content: 'кккк',
           answer: ''
         },
         {
-          name: 'Пятая',
+          name: 'Пятая4',
           price: 500,
           content: 'кккк',
           answer: ''
@@ -142,31 +142,31 @@ export const tasks: Itopic[] = [
       name: "kek44242",
       tasks: [
         {
-          name: 'Первая',
+          name: 'Первая5',
           price: 100,
           content: 'кккк',
           answer: ''
         },
         {
-          name: 'Вторая',
+          name: 'Вторая5',
           price: 200,
           content: 'кккк',
           answer: ''
         },
         {
-          name: 'Третья',
+          name: 'Третья5',
           price: 300,
           content: 'ккккк',
           answer: ''
         },
         {
-          name: 'Четвертая',
+          name: 'Четвертая5',
           price: 400,
           content: 'кккк',
           answer: ''
         },
         {
-          name: 'Пятая',
+          name: 'Пятая5',
           price: 500,
           content: 'кккк',
           answer: ''
