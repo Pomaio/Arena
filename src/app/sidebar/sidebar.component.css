@@ -47,3 +47,14 @@
   display: block;
  margin: 10px auto;
 }
+.user{
+  display: block;
+  height: 120px;
+  width: 174px;
+  margin: 10px;
+}
+.btn-danger{
+  background-color:#FF6347;
+  border-color: #FF0000;
+}
+

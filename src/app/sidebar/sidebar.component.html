@@ -1,12 +1,29 @@
 <div class="header">
-  <div class="card bg-secondary mb-3">
-    <div class="img-top">
-      <img src="../../assets/aut.png" width="100" height="100" alt="image">
-    </div>
-    <div *ngIf="User">{{User.email}}</div>
-    <button type="button" class="btn btn-secondary full" routerLink="aut">Вход</button>
+
+  <div class="card bg-secondary mb-3" *ngIf="!User">
+      <div class="img-top">
+          <img src="../../assets/aut.png" width="100" height="100" alt="image">
+      </div>
+      <button type="button" class="btn btn-secondary full" routerLink="aut">Вход</button>
   </div>
+
+  <div class="card bg-secondary mb-3" *ngIf="User">
+    <div class="user">
+      <img  src="../../assets/user-image.png" width="50" height="50" alt="image">
+      <div class="text-right">
+        <strong class="">Пользователь: </strong>
+        <span>{{User.email |lengthPipe}}</span>
+      </div>
+      <div class="text-right">
+        <strong class="">Очки: </strong>
+        <span>{{User.points}}</span>
+      </div>
+    </div>
+    <button type="button" class="btn btn-danger full" routerLink="aut">Выход</button>
+  </div>
+
 </div>
+
 <div class="main">
   <button type="button" class="btn btn-secondary full">Главная</button>
   <button type="button" class="btn btn-secondary full" routerLink="table">Задачи</button>

@@ -8,11 +8,12 @@ import {TaskListModule} from './task-list/task-list.module';
 import {ReactiveFormsModule} from '@angular/forms';
 import {appRoutes} from './routing/app.routing';
 import {AutorisationModule} from './autorisation/autorisation.module';
+import {LengthPipeModule} from './pipes/length-pipe/length-pipe.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    SidebarComponent
+    SidebarComponent,
   ],
   imports: [
     AutorisationModule,
@@ -21,6 +22,7 @@ import {AutorisationModule} from './autorisation/autorisation.module';
     TaskListModule,
     ReactiveFormsModule,
     RouterModule.forRoot(appRoutes),
+    LengthPipeModule,
   ],
   providers: [
     {

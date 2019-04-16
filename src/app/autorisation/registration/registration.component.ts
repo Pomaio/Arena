@@ -3,6 +3,7 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {AutorisationHttpService} from '../services/autorisation-http.service';
 import {Iuser} from '../../model/iuser';
 import {AutorisationService} from '../services/autorisation.service';
+import {initialPoints} from '../../constants/initialPoints.const';
 
 @Component({
   selector: 'app-registration',
@@ -80,13 +81,15 @@ export class RegistrationComponent implements OnInit {
         this.resultShow = true;
         this.Result = this.form.value;
         this.touchedButton = false;
-        console.log(typeof this.Result);
         this.form.reset();
+
+
         this.addUser(this.Result);
       }
     } else { return; }
   }
   addUser(user: Iuser) {
+    user.points = initialPoints;
     this.registrationHttpService.addUsers(user).subscribe(id => {
       const newUser = {...user, id};
     });
