@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {Iuser} from '../model/iuser';
+import {AutorisationService} from '../autorisation/services/autorisation.service';
 
 @Component({
   selector: 'app-sidebar',
@@ -7,9 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SidebarComponent implements OnInit {
 
-  constructor() { }
+  User: Iuser ;
 
-  ngOnInit() {
+  constructor(private _service: AutorisationService) {
+
+  this._service.invokeEvent.subscribe(user=>{
+    this.User=user;});
   }
+
+  ngOnInit() {}
 
 }

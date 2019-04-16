@@ -5,9 +5,11 @@ import {AutorisationHttpService} from './services/autorisation-http.service';
 import {HttpClientModule} from '@angular/common/http';
 import {ReactiveFormsModule} from '@angular/forms';
 import {RouterModule} from '@angular/router';
+import {RegistrationComponent} from './registration/registration.component';
+import {AutorisationService} from './services/autorisation.service';
 
 @NgModule({
-  declarations: [AutorisationComponent],
+  declarations: [AutorisationComponent,RegistrationComponent],
   exports: [
     AutorisationComponent
   ],
@@ -17,6 +19,6 @@ import {RouterModule} from '@angular/router';
     ReactiveFormsModule,
     RouterModule
   ],
-  providers:[AutorisationHttpService]
+  providers:[AutorisationHttpService,AutorisationService]
 })
 export class AutorisationModule { }

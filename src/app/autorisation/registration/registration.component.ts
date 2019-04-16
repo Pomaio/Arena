@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {AutorisationHttpService} from '../services/autorisation-http.service';
+import {Iuser} from '../../model/iuser';
+import {AutorisationService} from '../services/autorisation.service';
 
 @Component({
   selector: 'app-registration',
@@ -23,11 +26,13 @@ export class RegistrationComponent implements OnInit {
   };
   touchedButton = false;
   passwordRegex = /(?=.*[0-9])(?=.*[!?.,_+\-*/=])(?=.*[a-z])(?=.*[A-Z])/g;
-  Result: any;
+  Result: Iuser;
   resultShow: boolean = false;
 
 
-  constructor(private formBuilder: FormBuilder) {
+  constructor(private formBuilder: FormBuilder,
+              private registrationHttpService: AutorisationHttpService,
+              private _service: AutorisationService) {
   }
 
   ngOnInit() {
@@ -75,9 +80,16 @@ export class RegistrationComponent implements OnInit {
         this.resultShow = true;
         this.Result = this.form.value;
         this.touchedButton = false;
-        console.log(this.Result);
+        console.log(typeof this.Result);
         this.form.reset();
+        this.addUser(this.Result);
       }
     } else { return; }
+  }
+  addUser(user: Iuser) {
+    this.registrationHttpService.addUsers(user).subscribe(id => {
+      const newUser = {...user, id};
+    });
+     this._service.callToAuth(user);
   }
 }

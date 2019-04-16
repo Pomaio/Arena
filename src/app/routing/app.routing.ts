@@ -1,7 +1,7 @@
 
 import {Routes} from '@angular/router';
 import {AutorisationComponent} from '../autorisation/autorisation.component';
-import {RegistrationComponent} from '../registration/registration.component';
+import {RegistrationComponent} from '../autorisation/registration/registration.component';
 import {TaskListComponent} from '../task-list/task-list.component';
 
 export const appRoutes: Routes = [

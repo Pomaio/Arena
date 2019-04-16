@@ -5,17 +5,14 @@ import { AppComponent } from './app.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import {RouterModule} from '@angular/router';
 import {TaskListModule} from './task-list/task-list.module';
-import {AutorisationComponent} from './autorisation/autorisation.component';
 import {ReactiveFormsModule} from '@angular/forms';
-import { RegistrationComponent } from './registration/registration.component';
 import {appRoutes} from './routing/app.routing';
 import {AutorisationModule} from './autorisation/autorisation.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    SidebarComponent,
-    RegistrationComponent
+    SidebarComponent
   ],
   imports: [
     AutorisationModule,
@@ -29,7 +26,7 @@ import {AutorisationModule} from './autorisation/autorisation.module';
     {
       provide: LOCALE_ID,
       useValue: 'ru',
-    }
+    },
   ],
   bootstrap: [AppComponent]
 })
