@@ -1,4 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
+import {ServiceRxTxService} from '../../services/service-rx-tx.service';
 import {Itask} from '../../model/itask';
 
 @Component({
@@ -8,7 +9,15 @@ import {Itask} from '../../model/itask';
 })
 export class TaskFieldComponent implements OnInit {
 
-  constructor() { }
+  activeTasks: Array<Itask> =[];
+
+
+  constructor(private _service: ServiceRxTxService) {
+    this._service.txTasktoField.subscribe(task => {
+      this.activeTasks.splice(0,0,task);
+      console.log(this.activeTasks);
+    })
+  }
 
   ngOnInit() {
   }

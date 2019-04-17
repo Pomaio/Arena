@@ -18,3 +18,25 @@
       </div>
     </div>
   </div>
+</div>
+
+<div *ngFor="let one of activeTasks">
+  <div class="card border-primary mb-3" *ngIf="one">
+    <div class="card-header">Раздел задачи и количество баллов:{{one.price}} - {{one.name}}</div>
+    <div class="card-body">
+      <p class="card-text">
+        {{one.content}}
+      </p>
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text">Ответ:</span>
+        </div>
+        <input type="text"
+               class="form-control">
+        <div class="input-group-append">
+          <button type="submit" class="btn btn-success">Отправить</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
