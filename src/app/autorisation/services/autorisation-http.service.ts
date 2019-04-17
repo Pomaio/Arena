@@ -23,7 +23,9 @@ export class AutorisationHttpService {
           ),
       );
   }
+  changeUser (User: Iuser, param: string, value: any){
 
+  }
   addUser(newUser: Iuser): Observable<string> {
     return this.http
       .post<{name: string}>(`${BASE_URL}/user.json`, newUser)

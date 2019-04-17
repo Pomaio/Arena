@@ -1,13 +1,20 @@
 <div class="header">
 
-  <div class="card bg-secondary mb-3" *ngIf="!User">
+  <div class="card bg-secondary mb-3" *ngIf="!(User&&!deAuth)">
       <div class="img-top">
           <img src="../../assets/aut.png" width="100" height="100" alt="image">
       </div>
+
+
+    <div *ngIf="(nameActive!=='')">
+      {{nameActive}}
+    </div>
+
+
       <button type="button" class="btn btn-secondary full" routerLink="aut">Вход</button>
   </div>
 
-  <div class="card bg-secondary mb-3" *ngIf="User">
+  <div class="card bg-secondary mb-3" *ngIf="User&&!deAuth">
     <div class="user">
       <img  src="../../assets/user-image.png" width="50" height="50" alt="image">
       <div class="text-right">
@@ -19,7 +26,7 @@
         <span>{{User.points}}</span>
       </div>
     </div>
-    <button type="button" class="btn btn-danger full" routerLink="aut">Выход</button>
+    <button type="button" class="btn btn-danger full" (click)="deAut()" routerLink="aut">Выход</button>
   </div>
 
 </div>
