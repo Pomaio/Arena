@@ -84,6 +84,7 @@ export class AutorisationComponent implements OnInit {
   findUser(User: Iuser) {
     this.autorisationHttpService.getUser().subscribe(user => {
       user = user.filter((element) => (User.email == element.email));
+
       if(user.length == 0){
         this.errorAutorisation=this.errorAutorisationType['notfound'];
         return;
@@ -95,6 +96,11 @@ export class AutorisationComponent implements OnInit {
       }
       else{
         this._service.callToAuth(user[0]);
+        user[0].points=400;
+        this.autorisationHttpService.changeUser(user[0]).subscribe( user=>{
+          console.log(user);
+          debugger;
+        });
         this.errorAutorisation='';
       }
     });

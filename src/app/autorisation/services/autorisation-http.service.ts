@@ -12,6 +12,8 @@ interface IuserDto {
 @Injectable()
 export class AutorisationHttpService {
 
+
+
   constructor(private http: HttpClient) { }
 
   getUser(): Observable<Iuser[]> {
@@ -23,14 +25,19 @@ export class AutorisationHttpService {
           ),
       );
   }
-  changeUser (User: Iuser, param: string, value: any){
-
+  changeUser (User: Iuser): Observable<Iuser> {
+    return this.http.put<Iuser>(`${BASE_URL}/user/${User.id}.json`,User);
   }
+
+
   addUser(newUser: Iuser): Observable<string> {
     return this.http
       .post<{name: string}>(`${BASE_URL}/user.json`, newUser)
       .pipe(
         map(({name}) => name)
       );
+  }
+  deleteUser(id: string): Observable<void> {
+    return this.http.delete<void>('${BASE_URL}/user/${id}.json');
   }
 }
