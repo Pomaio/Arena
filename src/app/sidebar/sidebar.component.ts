@@ -25,8 +25,11 @@ export class SidebarComponent implements OnInit {
   });
   this._service.txActiveNameTaskEvent.subscribe((name) => {
       this.nameActive = name;
-      this.User.activeTask = name;
-    this.autorisationHttpService.changeUser(this.User).subscribe( user=>{});
+      if(this.User) { // костыль
+        this.User.activeTask = name;
+        this.autorisationHttpService.changeUser(this.User).subscribe(user => {
+        });
+      }
   })
 
   }
