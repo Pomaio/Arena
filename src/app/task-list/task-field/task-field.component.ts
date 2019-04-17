@@ -15,7 +15,6 @@ export class TaskFieldComponent implements OnInit {
   constructor(private _service: ServiceRxTxService) {
     this._service.txTasktoField.subscribe(task => {
       this.activeTasks.splice(0,0,task);
-      console.log(this.activeTasks);
     })
   }
 

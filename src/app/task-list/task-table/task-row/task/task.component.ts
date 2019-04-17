@@ -1,6 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Itask} from '../../../../model/itask';
-import {MAX_ACTIVE_TASK} from '../../../../constants/maxActiveTask.const';
 import {ServiceRxTxService} from '../../../../services/service-rx-tx.service';
 
 @Component({
@@ -12,15 +11,23 @@ export class TaskComponent implements OnInit {
 
   @Input() task: Itask;
   activeElement: any;
+  amountactiveElement: number = 0;
 
-  constructor(private _service: ServiceRxTxService) { }
+  constructor(private _service: ServiceRxTxService) {
+    this._service.txamountAT.subscribe( (value) => {
+        this.amountactiveElement = value;
+      })
+  }
 
   ngOnInit() {
   }
   onClick() {
-      this.activeElement = document.getElementById(this.task.name);
-      this.activeElement.className = 'active';
-      this._service.activateTask(this.task);
-    }
+    if(this.amountactiveElement < 3) {
 
+        this.activeElement = document.getElementById(this.task.name);
+        this.activeElement.className = 'active';
+        this._service.activateTask(this.task);
+      }
+    console.log(this.amountactiveElement);
+    }
 }

@@ -38,7 +38,7 @@ export class AutorisationComponent implements OnInit {
 
   constructor(private formBuilder: FormBuilder,
               private autorisationHttpService: AutorisationHttpService,
-              private _service: AutorisationService) {
+              private autorisationService: AutorisationService) {
   }
 
   ngOnInit() {
@@ -95,12 +95,7 @@ export class AutorisationComponent implements OnInit {
         this.errorAutorisation=this.errorAutorisationType['wrongpassword'];
       }
       else{
-        this._service.callToAuth(user[0]);
-        user[0].points=400;
-        this.autorisationHttpService.changeUser(user[0]).subscribe( user=>{
-          console.log(user);
-          debugger;
-        });
+        this.autorisationService.callToAuth(user[0]);
         this.errorAutorisation='';
       }
     });

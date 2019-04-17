@@ -15,11 +15,9 @@ export class TaskTableComponent implements OnInit {
 
   constructor(private taskTableService: TaskTableService, private _service: ServiceRxTxService) {
 
-    this._service.activateTaskEvent.subscribe(user =>{console.log(user);})
+    this._service.activateTaskEvent.subscribe(user => user);
   }
 
 
   ngOnInit() {this.tasks=this.taskTableService.getData();}
-
-
 }
