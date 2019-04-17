@@ -1,10 +1,7 @@
 import { Injectable } from '@angular/core';
 import {Itopic} from '../../../model/itopic';
-import {tasks} from '../../../../../utils/tasks-db';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class TaskTableService {
 
   getData(): Itopic[] {

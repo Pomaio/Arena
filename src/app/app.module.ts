@@ -9,6 +9,7 @@ import {ReactiveFormsModule} from '@angular/forms';
 import {appRoutes} from './routing/app.routing';
 import {AutorisationModule} from './autorisation/autorisation.module';
 import {LengthPipeModule} from './pipes/length-pipe/length-pipe.module';
+import {ServiceRxTxService} from './services/service-rx-tx.service';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import {LengthPipeModule} from './pipes/length-pipe/length-pipe.module';
       provide: LOCALE_ID,
       useValue: 'ru',
     },
+    ServiceRxTxService
   ],
   bootstrap: [AppComponent]
 })

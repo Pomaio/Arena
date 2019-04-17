@@ -1,7 +1,7 @@
 import {Component, OnInit, Output} from '@angular/core';
 import {TaskTableService} from './services/task-table.service';
 import {Itopic} from '../../model/itopic';
-import {Itask} from '../../model/itask';
+import {ServiceRxTxService} from '../../services/service-rx-tx.service';
 
 @Component({
   selector: 'app-task-table',
@@ -13,9 +13,13 @@ export class TaskTableComponent implements OnInit {
   tasks: Itopic[]=[] ;
 
 
-  constructor(private taskTableService: TaskTableService) { }
+  constructor(private taskTableService: TaskTableService, private _service: ServiceRxTxService) {
 
-  ngOnInit() {
-        this.tasks=this.taskTableService.getData();
+    this._service.activateTaskEvent.subscribe(user =>{console.log(user);})
   }
+
+
+  ngOnInit() {this.tasks=this.taskTableService.getData();}
+
+
 }
