@@ -1,7 +1,7 @@
 import {database, initializeApp} from 'firebase';
 import {environment} from '../src/environments/environment';
 import {tasks} from './tasks-db';
-import {users} from './users-db';
+import {user} from './users-db';
 
 initializeApp(environment.firebaseConfig);
 
@@ -18,7 +18,7 @@ async function populate(name: string, data: any[]): Promise<any> {
 }
 async function populateAll() {
   await populate('tasks', tasks);
-  await populate('users', users);
+  // await populate('user', user);
 
   // tslint:disable-next-line
   console.log('🔥 db populated 🔥');

@@ -1,6 +1,6 @@
 import {Iuser} from '../src/app/model/iuser';
 
-export const users: Iuser[] = [
+export const user: Iuser[] = [
   {
     id: "1",
     email: "admin@admin.com",

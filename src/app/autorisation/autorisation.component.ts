@@ -24,8 +24,11 @@ export class AutorisationComponent implements OnInit {
     minlength: 'Минимальная длина — 5'
 
   };
-  errorAutorisation="Пользователь не найден";
-  errorAutorisationStatus=false;
+  errorAutorisationType: object = {
+    notfound: "Пользователь не найден",
+    wrongpassword: "Неверный пароль"
+};
+  errorAutorisation='';
   touchedButton = false;
   passwordRegex = /(?=.*[0-9])(?=.*[!?.,_+\-*/=])(?=.*[a-z])(?=.*[A-Z])/g;
   Result: any;
@@ -80,14 +83,19 @@ export class AutorisationComponent implements OnInit {
   }
   findUser(User: Iuser) {
     this.autorisationHttpService.getUser().subscribe(user => {
-      user = user.filter(function(element) {
-        return ((User.email == element.email)&&(User.password == element.password));
-      });
-      if(user.length ===0){
-        this.errorAutorisationStatus=true;
-      }else{
+      user = user.filter((element) => (User.email == element.email));
+      if(user.length == 0){
+        this.errorAutorisation=this.errorAutorisationType['notfound'];
+        return;
+      }
+
+      user = user.filter((element) => (User.password == element.password));
+      if(user.length === 0){
+        this.errorAutorisation=this.errorAutorisationType['wrongpassword'];
+      }
+      else{
         this._service.callToAuth(user[0]);
-        this.errorAutorisationStatus=false;
+        this.errorAutorisation='';
       }
     });
   }
