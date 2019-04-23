@@ -3,6 +3,7 @@ import {Iuser} from '../model/iuser';
 import {AutorisationService} from '../autorisation/services/autorisation.service';
 import {ServiceRxTxService} from '../services/service-rx-tx.service';
 import {AutorisationHttpService} from '../autorisation/services/autorisation-http.service';
+import {Subject} from 'rxjs';
 
 @Component({
   selector: 'app-sidebar',
@@ -13,7 +14,6 @@ export class SidebarComponent implements OnInit {
 
   User: Iuser;
   deAuth: boolean = false;
-  nameActive:string = '';
 
   constructor(private autservice: AutorisationService,
               private autorisationHttpService: AutorisationHttpService,
@@ -22,13 +22,18 @@ export class SidebarComponent implements OnInit {
   this.autservice.invokeEvent.subscribe(user => {
     this.User = user;
     this.deAuth=false;
+    this._service.txUser.next(this.User);
+
   });
+
   this._service.txActiveNameTaskEvent.subscribe((name) => {
-      this.nameActive = name;
       if(this.User) { // костыль
-        this.User.activeTask = name;
-        this.autorisationHttpService.changeUser(this.User).subscribe(user => {
-        });
+
+        if(this.User.activeTask != undefined){
+          this.User.activeTask.push(name);
+        } else { this.User.activeTask = [name]}
+        this.autorisationHttpService.changeUser(this.User).subscribe();
+        this._service.txUser.next(this.User);
       }
   })
 

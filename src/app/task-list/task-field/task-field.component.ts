@@ -20,5 +20,4 @@ export class TaskFieldComponent implements OnInit {
 
   ngOnInit() {
   }
-
 }

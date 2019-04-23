@@ -1,0 +1,23 @@
+<div class="card border-primary mb-3" *ngIf="task" (submit)="Submit(task)">
+  <div class="card-header">Раздел задачи и количество баллов:{{task.price}} - {{task.name}}</div>
+  <form class="card-body" [formGroup]="form">
+    <p class="card-text">
+      {{task.content}}
+      {{task | json}}
+    </p>
+    <div class="input-group mb-3 form-group">
+      <div class="input-group-prepend">
+        <span class="input-group-text">Ответ:</span>
+      </div>
+      <input type="text"
+             autocomplete="off"
+             formControlName='answer'
+             class="form-control">
+      <div class="input-group-append">
+        <button type="submit"
+                class="btn btn-success">Отправить
+        </button>
+      </div>
+    </div>
+  </form>
+</div>

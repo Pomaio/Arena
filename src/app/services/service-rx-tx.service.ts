@@ -1,29 +1,25 @@
 import { Injectable } from '@angular/core';
 import {Subject} from 'rxjs';
 import {Itask} from '../model/itask';
+import {TaskTableService} from '../task-list/task-table/services/task-table.service';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable({providedIn: 'root'})
 export class ServiceRxTxService {
-  activateTaskEvent: Subject<any>= new Subject();
+
   txActiveNameTaskEvent: Subject<any>= new Subject();
+
   txTasktoField: Subject<any>= new Subject();
-  txamountAT: Subject<any>= new Subject();
-  amountAT:number =0;
-  activeNameTask:string ='';
+  txUser: Subject<any>= new Subject();
 
-  activateTask(task: Itask){
-    this.activateTaskEvent.next(task);
-    this.txTasktoField.next(task);
-
-    this.activeNameTask = this.activeNameTask.concat(task.name + ',');
-    this.amountAT += 1;
-    this.amountActivateTask(this.amountAT);
-    this.txActiveNameTaskEvent.next(this.activeNameTask);
+  constructor(private TTservice: TaskTableService) {
+    this.txUser.subscribe(user =>{
+      this.TTservice.txEvent.next(user);
+    })
   }
 
-  amountActivateTask(value: number){
-    this.txamountAT.next(value);
+
+  activateTask(task: Itask){
+    this.txTasktoField.next(task);
+    this.txActiveNameTaskEvent.next(task.name);
   }
 }
