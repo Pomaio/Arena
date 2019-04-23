@@ -1,7 +1,14 @@
-.active{
+.resolve{
   background: #9ACD32;
-  /*background: #FF6347;*/
-
+  cursor: not-allowed;
+}
+.reject{
+  background: #FF6347;
+  cursor: not-allowed;
+}
+.active{
+  background: #FFD700;
+  cursor: not-allowed;
 }
 :host{
   display: block;

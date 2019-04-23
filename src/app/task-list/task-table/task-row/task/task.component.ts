@@ -1,4 +1,4 @@
-import {Component, Input, OnDestroy, OnInit} from '@angular/core';
+import {AfterViewInit, Component, Input, OnInit} from '@angular/core';
 import {Itask} from '../../../../model/itask';
 import {ServiceRxTxService} from '../../../../services/service-rx-tx.service';
 import {TaskTableService} from '../../services/task-table.service';
@@ -8,16 +8,17 @@ import {TaskTableService} from '../../services/task-table.service';
   templateUrl: './task.component.html',
   styleUrls: ['./task.component.css']
 })
-export class TaskComponent implements OnInit{
+export class TaskComponent implements OnInit, AfterViewInit{
 
   @Input() task: Itask;
   activeElement: any;
   amountactiveElement: number = 0;
+  statusWork: boolean = true;
 
   constructor(private _service: ServiceRxTxService,
               private taskTS: TaskTableService) {
-    this.taskTS.changeAmountTask.subscribe(amount => {
-      this.amountactiveElement = amount;
+    this.taskTS.statusTask.subscribe(amount => {
+      this.amountactiveElement = amount.length;
     })
 
   }
@@ -27,12 +28,35 @@ export class TaskComponent implements OnInit{
       this.amountactiveElement = this.taskTS.username.activeTask.length;
     }
   }
-  onClick() {
-    if(this.amountactiveElement < 3) {
-        this.activeElement = document.getElementById(this.task.name);
-        this.activeElement.className = 'active';
-        this._service.activateTask(this.task);
+  ngAfterViewInit(){
+    if(this.taskTS.username != undefined) {
+      if(this.taskTS.username.activeTask
+        .some((name) => (name == this.task.name))){
+          this.activateTask(this.task);
+          this.taskTS.txTasktoField.next(this.task);
+      }
+      if(this.taskTS.username.completeTask
+        .some((name) => (name == this.task.name))){
+        this.paintTask(this.task,"complete");
       }
     }
+  }
+  onClick() {
+    if(this.amountactiveElement < 3 && this.statusWork) {
+        this.activateTask(this.task);
+        this._service.activateTask(this.task);
+      }
+  }
+  activateTask(task: Itask){
+      this.activeElement = document.getElementById(task.name);
+      this.activeElement.className = 'active';
+      this.statusWork = false;
+      console.log("disable",task.name);
+  }
 
+  paintTask(task: Itask,status: string) {
+    this.activeElement = document.getElementById(task.name);
+    this.activeElement.className = (status === "complete")? 'resolve': 'reject';
+    this.statusWork = false;
+  }
 }

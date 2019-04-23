@@ -7,8 +7,6 @@ import {TaskTableService} from '../task-list/task-table/services/task-table.serv
 export class ServiceRxTxService {
 
   txActiveNameTaskEvent: Subject<any>= new Subject();
-
-  txTasktoField: Subject<any>= new Subject();
   txUser: Subject<any>= new Subject();
 
   constructor(private TTservice: TaskTableService) {
@@ -19,7 +17,7 @@ export class ServiceRxTxService {
 
 
   activateTask(task: Itask){
-    this.txTasktoField.next(task);
+    this.TTservice.txTasktoField.next(task);
     this.txActiveNameTaskEvent.next(task.name);
   }
 }

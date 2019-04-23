@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import {Itopic} from '../../../model/itopic';
-import {ServiceRxTxService} from '../../../services/service-rx-tx.service';
 import {Iuser} from '../../../model/iuser';
 import {Subject} from 'rxjs';
 
@@ -10,12 +9,14 @@ export class TaskTableService {
 
   username: Iuser;
   txEvent: Subject<any>= new Subject();
-  changeAmountTask: Subject<any>= new Subject();
+  statusTask: Subject<any>= new Subject();
+  txTasktoField: Subject<any>= new Subject();
 
   constructor(){
     this.txEvent.subscribe(username =>{
       this.username = username;
-      this.changeAmountTask.next(this.username.activeTask.length);
+      console.log(this.username);
+      this.statusTask.next(this.username.activeTask);
     })
   }
 

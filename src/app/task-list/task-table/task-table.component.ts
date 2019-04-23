@@ -1,4 +1,4 @@
-import {Component, OnInit, Output} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {TaskTableService} from './services/task-table.service';
 import {Itopic} from '../../model/itopic';
 import {Iuser} from '../../model/iuser';
