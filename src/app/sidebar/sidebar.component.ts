@@ -40,17 +40,20 @@ export class SidebarComponent implements OnInit {
       this.User.completeTask.push(task.name);
     } else { this.User.completeTask = [task.name]}
     this.User.points += task.price;
-    console.log(this.User.activeTask,task.name);
-    this.User.activeTask = this.User.activeTask.filter((name) => {
-      console.log(name);
-      return (task.name != name.slice(0, -2));
-    });
-    console.log(this.User.activeTask);
+    this.User.activeTask = this.User.activeTask.filter((name) => {return (task.name != name.slice(0, -2));});
     this._service.paintedTaskResolve.next(task.name);
     this.autorisationHttpService.changeUser(this.User).subscribe();
     this._service.txUser.next(this.User);
+  });
+  this._service.failTaskEvent.subscribe((task) => {
+    if(this.User.failTask != undefined){
+      this.User.failTask.push(task.name);
+    } else { this.User.failTask = [task.name]}
+    this.User.activeTask = this.User.activeTask.filter((name) => {return (task.name != name.slice(0, -2));});
+    this._service.paintedTaskFail.next(task.name);
+    this.autorisationHttpService.changeUser(this.User).subscribe();
+    this._service.txUser.next(this.User);
   })
-
   }
 
   ngOnInit() {}

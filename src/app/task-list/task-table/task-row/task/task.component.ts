@@ -24,8 +24,12 @@ export class TaskComponent implements OnInit, AfterViewInit{
       if(this.task.name == name){
         this.paintTask(this.task,"complete");
       }
-    })
-
+    });
+    this._service.paintedTaskFail.subscribe( (name) => {
+      if(this.task.name == name){
+        this.paintTask(this.task,"fail");
+      }
+    });
   }
 
   ngOnInit() {
@@ -41,6 +45,11 @@ export class TaskComponent implements OnInit, AfterViewInit{
       if(this.taskTS.username.completeTask != undefined &&
         this.taskTS.username.completeTask.some((name) => (name == this.task.name))){
         this.paintTask(this.task,"complete");
+        this.statusWork = false;
+      }
+      if(this.taskTS.username.failTask != undefined &&
+        this.taskTS.username.failTask.some((name) => (name == this.task.name))){
+        this.paintTask(this.task,"fail");
         this.statusWork = false;
       }
     }

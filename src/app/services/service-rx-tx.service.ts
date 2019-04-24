@@ -10,6 +10,8 @@ export class ServiceRxTxService {
   txUser: Subject<any>= new Subject();
   resolveTaskEvent: Subject<any>= new Subject();
   paintedTaskResolve: Subject<any>= new Subject();
+  failTaskEvent: Subject<any>= new Subject();
+  paintedTaskFail: Subject<any>= new Subject();
 
   constructor(private TTservice: TaskTableService) {
     this.txUser.subscribe(user =>{

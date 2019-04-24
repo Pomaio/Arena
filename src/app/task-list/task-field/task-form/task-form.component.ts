@@ -55,6 +55,7 @@ export class TaskFormComponent implements OnInit, AfterViewInit {
       console.log("no");
     }
     if(this.attempt > 3){
+      this._service.failTaskEvent.next(this.task);
       // тут типа отправка в сайдбар завалено
       this.status = false;
     }
