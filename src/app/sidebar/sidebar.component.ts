@@ -28,13 +28,27 @@ export class SidebarComponent implements OnInit {
 
   this._service.txActiveNameTaskEvent.subscribe((name) => {
       if(this.User) { // костыль
-
         if(this.User.activeTask != undefined){
           this.User.activeTask.push(name);
         } else { this.User.activeTask = [name]}
         this.autorisationHttpService.changeUser(this.User).subscribe();
         this._service.txUser.next(this.User);
       }
+  });
+  this._service.resolveTaskEvent.subscribe((task) => {
+    if(this.User.completeTask != undefined){
+      this.User.completeTask.push(task.name);
+    } else { this.User.completeTask = [task.name]}
+    this.User.points += task.price;
+    console.log(this.User.activeTask,task.name);
+    this.User.activeTask = this.User.activeTask.filter((name) => {
+      console.log(name);
+      return (task.name != name.slice(0, -2));
+    });
+    console.log(this.User.activeTask);
+    this._service.paintedTaskResolve.next(task.name);
+    this.autorisationHttpService.changeUser(this.User).subscribe();
+    this._service.txUser.next(this.User);
   })
 
   }

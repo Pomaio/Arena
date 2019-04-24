@@ -19,31 +19,35 @@ export class TaskComponent implements OnInit, AfterViewInit{
               private taskTS: TaskTableService) {
     this.taskTS.statusTask.subscribe(amount => {
       this.amountactiveElement = amount.length;
+    });
+    this._service.paintedTaskResolve.subscribe( (name) => {
+      if(this.task.name == name){
+        this.paintTask(this.task,"complete");
+      }
     })
 
   }
 
   ngOnInit() {
-    if(this.taskTS.username != undefined) {
-      this.amountactiveElement = this.taskTS.username.activeTask.length;
-    }
+
   }
   ngAfterViewInit(){
     if(this.taskTS.username != undefined) {
-      if(this.taskTS.username.activeTask.some((name) => (name.slice(0, -2) == this.task.name))){
+      if(this.taskTS.username.activeTask != undefined &&
+        this.taskTS.username.activeTask.some((name) => (name.slice(0, -2) == this.task.name))){
           this.activateTask(this.task);
           this.taskTS.txTasktoField.next(this.task);
       }
-      if(this.taskTS.username.completeTask
-        .some((name) => (name == this.task.name))){
+      if(this.taskTS.username.completeTask != undefined &&
+        this.taskTS.username.completeTask.some((name) => (name == this.task.name))){
         this.paintTask(this.task,"complete");
+        this.statusWork = false;
       }
     }
   }
   onClick() {
     if(this.amountactiveElement < 3 && this.statusWork) {
         this.activateTask(this.task);
-        this.task.name+='-1';
         this._service.activateTask(this.task);
       }
   }

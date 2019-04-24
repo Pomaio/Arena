@@ -8,16 +8,19 @@ export class ServiceRxTxService {
 
   txActiveNameTaskEvent: Subject<any>= new Subject();
   txUser: Subject<any>= new Subject();
+  resolveTaskEvent: Subject<any>= new Subject();
+  paintedTaskResolve: Subject<any>= new Subject();
 
   constructor(private TTservice: TaskTableService) {
     this.txUser.subscribe(user =>{
       this.TTservice.txEvent.next(user);
-    })
+    });
+
   }
 
 
   activateTask(task: Itask){
     this.TTservice.txTasktoField.next(task);
-    this.txActiveNameTaskEvent.next(task.name);
+    this.txActiveNameTaskEvent.next(task.name+'-1');
   }
 }

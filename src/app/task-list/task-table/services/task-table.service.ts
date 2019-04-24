@@ -15,7 +15,8 @@ export class TaskTableService {
   constructor(){
     this.txEvent.subscribe(username =>{
       this.username = username;
-      this.statusTask.next(this.username.activeTask);
+      if(this.username.activeTask != undefined) {
+        this.statusTask.next(this.username.activeTask);}
     })
   }
 
