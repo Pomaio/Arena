@@ -10,6 +10,7 @@ import {TaskTableService} from '../task-table/services/task-table.service';
 export class TaskFieldComponent implements OnInit {
 
   activeTasks: Array<Itask> =[];
+  status: boolean = true;
 
 
   constructor(private taskTS: TaskTableService) {

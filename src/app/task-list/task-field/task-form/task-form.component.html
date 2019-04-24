@@ -1,5 +1,5 @@
-<div class="card border-primary mb-3" *ngIf="task" (submit)="Submit(task)">
-  <div class="card-header">Раздел задачи и количество баллов:{{task.price}} - {{task.name}}</div>
+<div class="card border-primary mb-3" *ngIf="task && status" (submit)="Submit()">
+  <div class="card-header">{{task.name}}    Количество баллов:{{realPrice}} - Попытка {{attempt}}/3</div>
   <form class="card-body" [formGroup]="form">
     <p class="card-text">
       {{task.content}}

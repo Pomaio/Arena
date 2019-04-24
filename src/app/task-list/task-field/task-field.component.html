@@ -21,5 +21,5 @@
 <!--</div>-->
 
 <div *ngFor="let one of activeTasks">
-  <app-task-form [task]="one"></app-task-form>
+  <app-task-form [task]="one" *ngIf="status"></app-task-form>
 </div>

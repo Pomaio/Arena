@@ -30,8 +30,7 @@ export class TaskComponent implements OnInit, AfterViewInit{
   }
   ngAfterViewInit(){
     if(this.taskTS.username != undefined) {
-      if(this.taskTS.username.activeTask
-        .some((name) => (name == this.task.name))){
+      if(this.taskTS.username.activeTask.some((name) => (name.slice(0, -2) == this.task.name))){
           this.activateTask(this.task);
           this.taskTS.txTasktoField.next(this.task);
       }
@@ -44,6 +43,7 @@ export class TaskComponent implements OnInit, AfterViewInit{
   onClick() {
     if(this.amountactiveElement < 3 && this.statusWork) {
         this.activateTask(this.task);
+        this.task.name+='-1';
         this._service.activateTask(this.task);
       }
   }
@@ -51,7 +51,6 @@ export class TaskComponent implements OnInit, AfterViewInit{
       this.activeElement = document.getElementById(task.name);
       this.activeElement.className = 'active';
       this.statusWork = false;
-      console.log("disable",task.name);
   }
 
   paintTask(task: Itask,status: string) {
