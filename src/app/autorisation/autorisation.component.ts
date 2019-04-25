@@ -82,17 +82,20 @@ export class AutorisationComponent implements OnInit {
       }
   }
   findUser(User: Iuser) {
+    this.autorisationService.loaderEvent.next(false);
     this.autorisationHttpService.getUser().subscribe(user => {
       user = user.filter((element) => (User.email == element.email));
 
       if(user.length == 0){
         this.errorAutorisation=this.errorAutorisationType['notfound'];
+        this.autorisationService.loaderEvent.next(true);
         return;
       }
 
       user = user.filter((element) => (User.password == element.password));
       if(user.length === 0){
         this.errorAutorisation=this.errorAutorisationType['wrongpassword'];
+        this.autorisationService.loaderEvent.next(true);
       }
       else{
         this.autorisationService.callToAuth(user[0]);

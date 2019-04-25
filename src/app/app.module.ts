@@ -10,11 +10,15 @@ import {appRoutes} from './routing/app.routing';
 import {AutorisationModule} from './autorisation/autorisation.module';
 import {LengthPipeModule} from './pipes/length-pipe/length-pipe.module';
 import {ServiceRxTxService} from './services/service-rx-tx.service';
+import { Page404Component } from './page404/page404.component';
+import { RulesComponent } from './rules/rules.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SidebarComponent,
+    Page404Component,
+    RulesComponent,
   ],
   imports: [
     AutorisationModule,

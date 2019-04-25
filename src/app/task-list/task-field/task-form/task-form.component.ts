@@ -43,7 +43,6 @@ export class TaskFormComponent implements OnInit, AfterViewInit {
   }
   CheckAnswer(answer: string){
     if(answer == this.task.answer){
-      console.log("красава");
       this.saveprice = this.task.price;
       this.task.price = this.realPrice;
       this._service.resolveTaskEvent.next(this.task); // тут типа отправка в сайдбар выполнено
@@ -52,7 +51,6 @@ export class TaskFormComponent implements OnInit, AfterViewInit {
     }else{
       this.realPrice /= 2;
       this.attempt +=1;
-      console.log("no");
     }
     if(this.attempt > 3){
       this._service.failTaskEvent.next(this.task);

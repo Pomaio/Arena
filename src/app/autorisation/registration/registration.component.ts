@@ -96,8 +96,9 @@ export class RegistrationComponent implements OnInit {
     return form;
   }
   addUser(user: Iuser) {
+    this._service.loaderEvent.next(false);
     this.registrationHttpService.addUser(user).subscribe(id => {
-      const newUser = {...user, id};
+      console.log(id);
     });
      this._service.callToAuth(user);
   }

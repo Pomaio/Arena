@@ -1,29 +1,35 @@
-import { Component, OnInit } from '@angular/core';
+import {AfterViewInit, Component, OnInit} from '@angular/core';
 import {Iuser} from '../model/iuser';
 import {AutorisationService} from '../autorisation/services/autorisation.service';
 import {ServiceRxTxService} from '../services/service-rx-tx.service';
 import {AutorisationHttpService} from '../autorisation/services/autorisation-http.service';
-import {Subject} from 'rxjs';
 
 @Component({
   selector: 'app-sidebar',
   templateUrl: './sidebar.component.html',
   styleUrls: ['./sidebar.component.css']
 })
-export class SidebarComponent implements OnInit {
+export class SidebarComponent implements OnInit, AfterViewInit  {
 
   User: Iuser;
   deAuth: boolean = false;
+  status: boolean = true;
+  activeElement: any;
+  classActiveElement: string = 'card bg-secondary mb-3';
 
   constructor(private autservice: AutorisationService,
               private autorisationHttpService: AutorisationHttpService,
               private  _service: ServiceRxTxService) {
-
+  this.autservice.loaderEvent.subscribe((status) => {
+    this.status = status;
+    this.switchLoader(status);
+  });
   this.autservice.invokeEvent.subscribe(user => {
     this.User = user;
     this.deAuth=false;
     this._service.txUser.next(this.User);
-
+    this.status=true;
+    this.switchLoader(true);
   });
 
   this._service.txActiveNameTaskEvent.subscribe((name) => {
@@ -56,9 +62,17 @@ export class SidebarComponent implements OnInit {
   })
   }
 
-  ngOnInit() {}
+  ngOnInit() {
 
+  }
+  ngAfterViewInit(){
+
+  }
   deAut() {
     this.deAuth = true;
+  }
+  switchLoader(status: boolean){
+    this.activeElement = document.getElementById("loader");
+    this.activeElement.className = (status !== true) ? this.classActiveElement : this.classActiveElement+' loaderOFF';
   }
 }
