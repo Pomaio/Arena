@@ -5,15 +5,18 @@ import {RegistrationComponent} from '../autorisation/registration/registration.c
 import {TaskListComponent} from '../task-list/task-list.component';
 import {Page404Component} from '../page404/page404.component';
 import {RulesComponent} from '../rules/rules.component';
+import {RateComponent} from '../rate/rate.component';
+import {AuthGuard} from '../auth/auth.guard';
 
 export const appRoutes: Routes = [
   {
     path: 'table',
+    canActivate: [AuthGuard],
     component: TaskListComponent,
   },
   {
-    path: '404',
-    component: Page404Component,
+    path: 'rate',
+    component: RateComponent,
   },
   {
     path: 'rule',
@@ -26,5 +29,13 @@ export const appRoutes: Routes = [
   {
     path: 'aut',
     component: AutorisationComponent,
+  },
+  {
+    path: '',
+    component: AutorisationComponent, //cюда залить интро
+  },
+  {
+    path: '**',
+    component: Page404Component,
   }
 ];

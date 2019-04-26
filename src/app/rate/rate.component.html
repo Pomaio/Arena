@@ -1,0 +1,22 @@
+<h4>Рейтинг</h4>
+<table class="table table-hover">
+  <thead>
+      <tr>
+         <th>Пользователь</th>
+         <th>Кол-во очков</th>
+         <th>Кол-во активных задач</th>
+         <th>Кол-во решенных задач</th>
+         <th>Кол-во незасчитанных задач</th>
+      </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let one of users; first as isFirst" [ngClass]="isFirst == true ?'table-success':''">
+          <th>{{one.email}} + {{isFirst}}</th>
+          <th>{{one.points}}</th>
+          <th>{{one.activeTask.length}}</th>
+          <th>{{one.completeTask.length}}</th>
+          <th>{{one.failTask.length}}</th>
+      </tr>
+  </tbody>
+
+</table>

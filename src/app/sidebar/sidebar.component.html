@@ -1,6 +1,6 @@
 <div class="header">
 
-  <div class="card bg-secondary mb-3" *ngIf="!(User&&!deAuth)&&status">
+  <div class="card bg-secondary mb-3" *ngIf="!(User&&!deAuth)&&statusload">
       <div class="img-top">
           <img src="../../assets/aut.png" width="100" height="100" alt="image">
       </div>
@@ -11,7 +11,7 @@
     <img src="../../assets/loadersidebar.svg" height="150" alt="kek">
   </div>
 
-  <div class="card bg-secondary mb-3" *ngIf="User&&!deAuth&&status">
+  <div class="card bg-secondary mb-3" *ngIf="User&&!deAuth&&statusload">
     <div class="user">
       <img  src="../../assets/user-image.png" width="50" height="50" alt="image">
       <div class="text-right">
@@ -29,10 +29,9 @@
 </div>
 
 <div class="main">
-  <button type="button" class="btn btn-secondary full">Главная</button>
   <button type="button" class="btn btn-secondary full" routerLink="table">Задачи</button>
-  <button type="button" class="btn btn-secondary full">Рейтинг</button>
-  <button type="button" class="btn btn-secondary full"routerLink="rule">Правила</button>
+  <button type="button" class="btn btn-secondary full" routerLink="rate">Рейтинг</button>
+  <button type="button" class="btn btn-secondary full" routerLink="rule">Правила</button>
   <button type="button" class="btn btn-secondary full" routerLink="404">404</button>
 </div>
 <div class="footer card">

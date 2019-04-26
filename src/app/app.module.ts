@@ -1,6 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
 import {LOCALE_ID, NgModule} from '@angular/core';
-
 import { AppComponent } from './app.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import {RouterModule} from '@angular/router';
@@ -12,6 +11,8 @@ import {LengthPipeModule} from './pipes/length-pipe/length-pipe.module';
 import {ServiceRxTxService} from './services/service-rx-tx.service';
 import { Page404Component } from './page404/page404.component';
 import { RulesComponent } from './rules/rules.component';
+import { RateComponent } from './rate/rate.component';
+import {AuthGuard} from './auth/auth.guard';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { RulesComponent } from './rules/rules.component';
     SidebarComponent,
     Page404Component,
     RulesComponent,
+    RateComponent,
   ],
   imports: [
     AutorisationModule,
@@ -34,7 +36,8 @@ import { RulesComponent } from './rules/rules.component';
       provide: LOCALE_ID,
       useValue: 'ru',
     },
-    ServiceRxTxService
+    ServiceRxTxService,
+    AuthGuard
   ],
   bootstrap: [AppComponent]
 })
