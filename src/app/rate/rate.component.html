@@ -11,7 +11,7 @@
   </thead>
   <tbody>
   <tr *ngFor="let one of users; first as isFirst" [ngClass]="isFirst == true ?'table-success':''">
-          <th>{{one.email}} + {{isFirst}}</th>
+          <th>{{one.email | lengthPipe}}</th>
           <th>{{one.points}}</th>
           <th>{{one.activeTask.length}}</th>
           <th>{{one.completeTask.length}}</th>

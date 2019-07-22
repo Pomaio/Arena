@@ -12,13 +12,8 @@ export class AuthService {
 
   constructor(){
     this._user.subscribe((cond) =>{
-      console.log(cond);
       this.status = cond;
     })
-  }
-
-  checkAuthStatus(){
-
   }
 
 }

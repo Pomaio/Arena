@@ -36,7 +36,7 @@ export class TaskFormComponent implements OnInit, AfterViewInit {
     }
   }
   ngAfterViewInit(){
-
+    console.log(this.task);
   }
   Submit() {
     this.CheckAnswer(this.form.value.answer);

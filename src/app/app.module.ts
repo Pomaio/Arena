@@ -28,7 +28,6 @@ import {AuthGuard} from './auth/auth.guard';
     RouterModule,
     TaskListModule,
     ReactiveFormsModule,
-    RouterModule.forRoot(appRoutes),
     LengthPipeModule,
   ],
   providers: [
